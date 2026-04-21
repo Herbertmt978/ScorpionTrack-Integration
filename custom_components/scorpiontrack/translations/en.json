@@ -9,7 +9,7 @@
           "share_token": "Share URL or token"
         },
         "data_description": {
-          "share_token": "A full URL such as https://app.scorpiontrack.com/shared/location?token=... or just the token itself."
+          "share_token": "Paste the full ScorpionTrack shared-location URL or just the token itself."
         }
       }
     },
