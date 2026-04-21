@@ -22,12 +22,5 @@
     "abort": {
       "already_configured": "This shared location is already configured."
     }
-  },
-  "entity": {
-    "device_tracker": {
-      "live_location": {
-        "name": "Live location"
-      }
-    }
   }
 }

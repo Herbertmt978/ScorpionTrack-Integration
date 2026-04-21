@@ -11,7 +11,7 @@ It exists for a narrow reason: the share link is the safest, most reviewable Sco
 
 - ScorpionTrack shared-location links only
 - UI setup through Home Assistant config flows
-- one `device_tracker` per shared vehicle
+- one `device_tracker` per shared vehicle for the Home Assistant map
 - a deliberately minimal first-pass Core scope
 
 ## What This Repo Deliberately Does Not Cover
@@ -76,7 +76,11 @@ One ScorpionTrack share can include multiple vehicles, and this integration impo
 
 For the first Home Assistant Core submission, the integration creates:
 
-- a `device_tracker` for each vehicle included in the ScorpionTrack share
+- a single `device_tracker` entity for each vehicle included in the ScorpionTrack share
+
+That tracker is the location entity. It is meant to show the car directly on the Home Assistant map without creating a duplicate location marker from a separate sensor.
+
+Each tracker uses the vehicle registration when available, falling back to the ScorpionTrack vehicle display name when it is not.
 
 That is intentional. Home Assistant's current contribution guidance recommends keeping a new integration PR as small as possible, ideally to a single platform. Extra sensors and secondary features can be layered in later if the base integration is accepted.
 
@@ -87,6 +91,7 @@ That is intentional. Home Assistant's current contribution guidance recommends k
 - If the share expires, is revoked, or stops returning usable data, the integration will fail setup cleanly or mark entities unavailable on refresh.
 - The `device_tracker` keeps Home Assistant zone handling intact while still exposing supporting location context through attributes.
 - Speed is normalized in tracker attributes using the share's preferred distance units.
+- The tracker attributes still carry the useful supporting context like address, heading, status, speed, stale state, and last reported time.
 
 ## Privacy Notes
 

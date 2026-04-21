@@ -46,16 +46,20 @@ async def async_setup_entry(
 class ScorpionTrackTrackerEntity(ScorpionTrackEntity, TrackerEntity):
     """Represent the latest shared GPS location for a vehicle."""
 
-    _attr_has_entity_name = True
+    _attr_has_entity_name = False
     _attr_icon = "mdi:car"
     _attr_location_accuracy = 0.0
     _attr_source_type = SourceType.GPS
-    _attr_translation_key = "live_location"
 
     def __init__(self, coordinator, vehicle_id: int) -> None:
         """Initialize the tracker."""
         super().__init__(coordinator, vehicle_id)
         self._attr_unique_id = f"{coordinator.data.id}_{vehicle_id}_tracker"
+
+    @property
+    def name(self) -> str:
+        """Return the vehicle-facing tracker label used on the map."""
+        return self.vehicle.registration or self.vehicle.display_name
 
     @property
     def available(self) -> bool:
