@@ -1,5 +1,18 @@
 # ScorpionTrack
 
+## Development has moved to Home Assistant Core
+
+ScorpionTrack is now included in Home Assistant Core. Please use the built-in integration and follow the [official setup documentation](https://www.home-assistant.io/integrations/scorpiontrack/).
+
+I am keeping this repository as an archive of the original Core candidate. It is no longer maintained, and its custom component should not be used for new installations. Further integration changes belong in [Home Assistant Core](https://github.com/home-assistant/core/tree/dev/homeassistant/components/scorpiontrack).
+
+The separate [python-scorpiontrack client library](https://github.com/Herbertmt978/python-scorpiontrack), published as `pyscorpiontrack`, remains maintained and is still used by the Core integration.
+
+<details>
+<summary>Historical candidate documentation</summary>
+
+The notes below describe the original candidate, not the current Core integration. They are retained for reference rather than as installation instructions.
+
 [![Syntax](https://github.com/Herbertmt978/ScorpionTrack-Integration/actions/workflows/validate.yml/badge.svg)](https://github.com/Herbertmt978/ScorpionTrack-Integration/actions/workflows/validate.yml)
 [![Hassfest](https://github.com/Herbertmt978/ScorpionTrack-Integration/actions/workflows/hassfest.yml/badge.svg)](https://github.com/Herbertmt978/ScorpionTrack-Integration/actions/workflows/hassfest.yml)
 
@@ -113,3 +126,5 @@ To remove the integration from a local custom-components test setup:
 2. Delete `custom_components/scorpiontrack`.
 3. Restart Home Assistant.
 4. If you no longer need the sibling client library in that environment, uninstall `pyscorpiontrack`.
+
+</details>
